@@ -1,0 +1,314 @@
+<title>The Bright Matter Heist</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --cream:#FAE3B1; --cream-lt:#FCEECB; --olive:#998731; --sky:#5FA8C2;
+    --orange:#CF5527; --wine:#7D2027; --brown:#673C34; --gold:#C9A24B;
+    --ink:#7D2027; --ink-soft:#673C34; --line:rgba(103,60,52,.22);
+    --radius:14px;
+    --shadow:0 2px 4px rgba(103,60,52,.08), 0 14px 30px -16px rgba(103,60,52,.3);
+    --disp:'Bricolage Grotesque','Archivo',Arial,sans-serif;
+    --body:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --serif:'Fraunces',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 26px}
+  h1,h2,h3{font-family:var(--disp)}
+  h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:500}
+
+  header{padding:64px 0 40px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;font-size:16px;margin-bottom:30px}
+  .brand svg{width:24px;height:24px}
+  h1{font-size:clamp(38px,7vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.0;margin:0 0 18px;text-wrap:balance}
+  .lede{font-size:18.5px;color:var(--ink-soft);max-width:36em;margin:0}
+
+  .meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:28px;padding:18px 22px;background:var(--cream-lt);border:1px solid var(--line);border-radius:var(--radius)}
+  .meta div{font-size:13.5px;color:var(--ink-soft)}
+  .meta b{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);margin-bottom:2px}
+
+  .section{padding:44px 0 8px}
+  h2{font-size:clamp(24px,3.6vw,34px);font-weight:800;letter-spacing:-.02em;margin:0 0 14px}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brown);margin:0 0 10px}
+  .kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+
+  .rules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:22px 0 8px}
+  @media (max-width:720px){.rules{grid-template-columns:1fr}}
+  .rule{background:var(--cream-lt);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px}
+  .rule h3{font-size:15px;margin:0 0 6px}
+  .rule p{font-size:13.5px;color:var(--ink-soft);margin:0}
+
+  .scene{background:var(--cream-lt);border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px 22px;margin:22px 0;box-shadow:var(--shadow);position:relative}
+  .scene-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .scene-num{font-family:var(--mono);font-size:12px;color:var(--cream);background:var(--wine);border-radius:6px;padding:3px 9px;letter-spacing:.08em}
+  .scene h3{font-size:19px;margin:0}
+  .scene .dur{font-family:var(--mono);font-size:12px;color:var(--olive);margin-left:auto}
+  .scene .dir{font-size:14.5px;color:var(--ink-soft);margin:6px 0 16px}
+
+  .block{margin:12px 0}
+  .block-label{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+  .block-label.img{color:var(--sky)}
+  .block-label.vid{color:var(--orange)}
+  .block-label.vo{color:var(--olive)}
+  .prompt{
+    position:relative;font-family:var(--mono);font-size:13px;line-height:1.6;
+    background:#FFF8E6;border:1px solid var(--line);border-radius:10px;
+    padding:14px 90px 14px 16px;white-space:pre-wrap;color:#4a2a20;
+  }
+  .prompt.vo-line{font-family:var(--body);font-size:15.5px;font-style:italic;color:var(--wine);background:transparent;border-style:dashed;padding-right:16px}
+  .copy{
+    position:absolute;top:10px;right:10px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    background:var(--wine);color:var(--cream);border:0;border-radius:6px;
+    padding:6px 11px;cursor:pointer;transition:transform .15s ease,background .15s ease;
+  }
+  .copy:hover{transform:translateY(-1px);background:var(--orange)}
+  .copy:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  .overlay-note{font-size:13px;color:var(--ink-soft);margin-top:10px}
+  .overlay-note b{color:var(--wine)}
+
+  .vo-full{background:var(--cream-lt);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-top:20px}
+  .vo-full p{font-size:16.5px;line-height:1.9;margin:0 0 16px}
+  .vo-full .beat{font-family:var(--mono);font-size:11px;color:var(--olive);letter-spacing:.08em;text-transform:uppercase}
+
+  .alts{margin:16px 0 0;padding:0;list-style:none}
+  .alts li{padding:10px 0;border-top:1px dashed var(--line);font-size:15px}
+  .alts li:first-child{border-top:0}
+  .alts b{color:var(--wine)}
+
+  .tips li{margin-bottom:10px;font-size:15px}
+  .tips b{color:var(--wine)}
+
+  footer{margin-top:56px;padding:30px 0 56px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px}
+  footer a{color:var(--wine)}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="48" cy="54" r="40" fill="none" stroke="#7D2027" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="84 16" transform="rotate(-20 48 54)"/><circle cx="78" cy="20" r="13.5" fill="#C9A24B"/></svg>
+    BRIGHT MATTER
+  </div>
+  <h1>The <em>Heist</em>.</h1>
+  <p class="lede">A 60-second spot. One woman walks into a marketing agency and takes back what was hers the whole time. Tongue in cheek, fearless, zero apologies. You dub the voiceover; the video carries the bit.</p>
+  <div class="meta">
+    <div><b>Format</b>9:16 vertical, Reels / TikTok / Shorts</div>
+    <div><b>Runtime</b>~60s full cut, 30s cut marked below</div>
+    <div><b>Build</b>8 clips, ~5 to 8s each, in Higgsfield</div>
+    <div><b>Audio</b>Your dubbed VO over a sly heist-jazz track</div>
+  </div>
+</header>
+
+<section class="section">
+  <p class="kicker">Why this works</p>
+  <h2>Three rules the research handed us</h2>
+  <div class="rules">
+    <div class="rule"><h3>Every joke is a value prop</h3><p>The Dollar Shave Club rule. She never steals anything random: each item she takes is a thing agencies actually withhold. The fridge gag is the one pure joke, and it earns it.</p></div>
+    <div class="rule"><h3>The pain is real</h3><p>"Agency holds your data hostage" is a documented, searched-for frustration: locked ad accounts, dashboards you pay for but never see, "proprietary" everything. Satire lands hardest when the audience has lived it.</p></div>
+    <div class="rule"><h3>Raw beats polished</h3><p>Founder-fronted, slightly imperfect short-form is outperforming big-budget gloss right now. Your own dubbed voice over AI-shot footage is the format, not a compromise.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="kicker">How to build it in Higgsfield</p>
+  <h2>The two-step per scene</h2>
+  <ul class="tips">
+    <li><b>Step 1: generate the start frame.</b> Use your reference photo (or your trained Soul) with Soul 2.0 or Nano Banana Pro so the heroine is you in every scene. Every image prompt below opens with the same character token; keep it identical so the woman never drifts between clips.</li>
+    <li><b>Step 2: animate it.</b> Feed each start frame to your preferred video model as image-to-video with the motion prompt. Ask for 5 to 8 seconds, 9:16.</li>
+    <li><b>No spoken dialogue on camera.</b> You are dubbing, so keep every mouth closed. The one "spoken" line in scene 5 plays as a dead stare into the lens while your VO says it. Funnier that way anyway.</li>
+    <li><b>Consistency kit:</b> same wardrobe token in every prompt, same office palette (warm wood, glass, cool grey agency-chic so YOUR warm cream reads as the invader), same lens language.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <p class="kicker">The script</p>
+  <h2>Scene by scene</h2>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 01</span><h3>The doors</h3><span class="dur">6s · 30s cut: keep</span></div>
+    <p class="dir">Cold open. She pushes through the glass doors mid-stride, slow motion, sunlight flaring behind her. The receptionist's smile dies.</p>
+    <div class="block"><div class="block-label img">Start frame · image prompt</div>
+      <div class="prompt" data-copy>Editorial cinematic photo, 9:16. A confident woman with long wavy auburn red hair and freckles, tailored cream suit, gold necklace, pushing open tall glass doors into a sleek pretentious marketing agency lobby with cool grey walls, neon sign reading SYNERGY, a startled receptionist behind a white desk. She is mid-stride, sunglasses on, lit by warm sunlight flaring behind her, agency interior in cold blue-grey tones. 35mm, shallow depth, film grain.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vid">Motion · video prompt</div>
+      <div class="prompt" data-copy>Slow motion confident walk toward camera as the glass doors swing shut behind her, her hair and blazer moving with the stride, receptionist turning to watch in alarm, subtle camera dolly backward, cinematic, stable face.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"This is a marketing agency. Somewhere in this building is everything they know about my customers. I'm here to take it back."</div></div>
+    <div class="overlay-note"><b>Text overlay:</b> none yet. Let the walk breathe.</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 02</span><h3>The dashboard</h3><span class="dur">7s · 30s cut: keep</span></div>
+    <p class="dir">She stops at a huge wall monitor labeled CLIENT DASHBOARD, admires it for half a beat, then yanks the cable. Screen dies. An account manager's jaw drops.</p>
+    <div class="block"><div class="block-label img">Start frame · image prompt</div>
+      <div class="prompt" data-copy>Editorial cinematic photo, 9:16. A confident woman with long wavy auburn red hair and freckles, tailored cream suit, gold necklace, standing in a modern agency office beside a huge wall-mounted monitor showing colorful marketing analytics charts labeled CLIENT DASHBOARD. She grips the monitor's power cable, about to pull it. Behind her a panicked young account manager in a black turtleneck holds an iced coffee. Cold grey office, warm light on her, 35mm, film grain.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vid">Motion · video prompt</div>
+      <div class="prompt" data-copy>She yanks the cable out with one clean pull, the screen goes black, she tucks the coiled cable under her arm like a handbag and walks off. The account manager flinches and spills a little coffee. Camera static, deadpan comedy timing, stable face.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"That's my dashboard. I've paid for it monthly for three years. I've seen it twice."</div></div>
+    <div class="overlay-note"><b>Text overlay:</b> "your data ✓" checklist appears top-left, first item ticked.</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 03</span><h3>The pyramid</h3><span class="dur">7s</span></div>
+    <p class="dir">Glass conference room. A strategist is presenting a triangle diagram. She walks in without knocking, takes the whiteboard marker from his hand mid-gesture, and leaves.</p>
+    <div class="block"><div class="block-label img">Start frame · image prompt</div>
+      <div class="prompt" data-copy>Editorial cinematic photo, 9:16. Inside a glass-walled agency conference room, a smug strategist in designer glasses presents a whiteboard with a large triangle diagram labeled BRAND PYRAMID to bored executives. A confident woman with long wavy auburn red hair and freckles, tailored cream suit, gold necklace, reaches in from the doorway taking the marker out of his raised hand. Cold office tones, warm light on her, 35mm, film grain.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vid">Motion · video prompt</div>
+      <div class="prompt" data-copy>She plucks the marker from his hand without breaking stride and exits frame, he freezes mid-sentence with his hand still raised, the executives look at each other, one slow blink. Camera static, dry comedy, stable faces.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"They're presenting my brand pyramid. I never asked for a pyramid."</div></div>
+    <div class="overlay-note"><b>Alt VO if you want the harder jab:</b> "Four people billed forty hours for this triangle."</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 04</span><h3>The vault</h3><span class="dur">8s · 30s cut: keep</span></div>
+    <p class="dir">The heist beat. Server room bathed in blue light. She unplugs an ethernet cable labeled YOUR DATA, coils it over her shoulder like a climbing rope, stacks a hard drive labeled CUSTOMER LIST into her box.</p>
+    <div class="block"><div class="block-label img">Start frame · image prompt</div>
+      <div class="prompt" data-copy>Editorial cinematic photo, 9:16. A confident woman with long wavy auburn red hair and freckles, tailored cream suit, gold necklace, standing in a dark server room lit blue, pulling a glowing ethernet cable with a paper tag reading YOUR DATA from a rack, a cardboard box at her feet holding a hard drive labeled CUSTOMER LIST and a trophy. Dramatic heist lighting, warm key light on her face, 35mm, film grain.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vid">Motion · video prompt</div>
+      <div class="prompt" data-copy>She unplugs the cable in slow motion, coils it over her shoulder like a rope, picks up the cardboard box, and strides toward camera while red warning lights start blinking on the racks behind her. Confident, unhurried, cinematic heist energy, stable face.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"My data. My ad accounts. My customer list. Funny how 'proprietary' always means mine, but they keep it."</div></div>
+    <div class="overlay-note"><b>Text overlay:</b> checklist grows: "your data ✓ / your ad accounts ✓ / your customer list ✓".</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 05</span><h3>The fridge</h3><span class="dur">5s · 30s cut: keep</span></div>
+    <p class="dir">THE joke. Break room. She opens the fridge, takes a labeled lunch container and the oat milk, looks dead into the camera. Hold. Hold. Walk.</p>
+    <div class="block"><div class="block-label img">Start frame · image prompt</div>
+      <div class="prompt" data-copy>Editorial cinematic photo, 9:16. A confident woman with long wavy auburn red hair and freckles, tailored cream suit, gold necklace, standing at an open office fridge in a trendy agency break room, holding a glass meal-prep container with a sticky note reading GREG and a carton of oat milk, looking directly into the camera with a completely deadpan expression. Kombucha bottles on the shelf, cold office light, warm light on her face, 35mm, film grain.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vid">Motion · video prompt</div>
+      <div class="prompt" data-copy>She closes the fridge door with her hip, holds a dead-serious stare into the lens for two full seconds without blinking, then walks out of frame with the lunch container and oat milk. Deadpan, no smile until the very last frame where one corner of her mouth twitches. Stable face.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"I'm taking this too."</div></div>
+    <div class="overlay-note"><b>Text overlay:</b> "greg's lunch ✓" gets added to the checklist. This is the clip people will rewatch; put the beat drop here.</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 06</span><h3>The panic</h3><span class="dur">6s</span></div>
+    <p class="dir">Wide shot of the open office descending into chaos behind her calm exit walk. Someone's on the phone. Someone points at the dead dashboard.</p>
+    <div class="block"><div class="block-label img">Start frame · image prompt</div>
+      <div class="prompt" data-copy>Editorial cinematic photo, 9:16. A confident woman with long wavy auburn red hair and freckles, tailored cream suit, gold necklace, carrying a cardboard box of office items including a coiled cable, a framed motivational poster and a small plant, walking calmly through a chaotic open-plan agency office. Behind her: a man in a beanie on the phone gesturing wildly, a woman pointing at a dead wall monitor, sticky notes falling off a glass wall. She is serene, they are not. 35mm, film grain.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vid">Motion · video prompt</div>
+      <div class="prompt" data-copy>She walks screen-left to right calm and unbothered while the office panics behind her in layered background action, papers drifting, phone gesturing, one person slowly sinking into a beanbag in despair. Camera tracks her at walking pace, comedy in the background, stable face.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"Here's what they don't want you to know. AI can now run most of what they charge six figures a year to babysit."</div></div>
+    <div class="overlay-note"><b>Text overlay:</b> "$200,000/yr retainer" with a strikethrough animating across it. <b>Alt VO, meaner:</b> "Nobody in this office knows your customers. They know your budget."</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 07</span><h3>The handoff</h3><span class="dur">7s · 30s cut: keep</span></div>
+    <p class="dir">Outside. Golden hour. She drops the box into the trunk of her car, closes it, leans on it facing camera. This is the sincere beat: the offer.</p>
+    <div class="block"><div class="block-label img">Start frame · image prompt</div>
+      <div class="prompt" data-copy>Editorial cinematic photo, 9:16. A confident woman with long wavy auburn red hair and freckles, tailored cream suit, gold necklace, leaning against the closed trunk of a vintage car parked outside a glass office building at golden hour, arms crossed, warm sunset light, the cold agency building looming behind her. Relaxed, victorious, slight knowing smile. 35mm, film grain.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vid">Motion · video prompt</div>
+      <div class="prompt" data-copy>Gentle push-in toward her as she leans on the trunk, wind moves her hair, she gives a small confident nod to camera, golden hour flare drifting across the frame. Warm, calm, sincere. Stable face.<button class="copy">COPY</button></div></div>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"You know your business better than any agency ever will. I build the automated systems: content, reporting, follow-up. Your team runs them. Your data stays yours."</div></div>
+    <div class="overlay-note"><b>Text overlay:</b> none. Sincerity plays clean.</div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">SC 08</span><h3>The card</h3><span class="dur">4s · 30s cut: keep</span></div>
+    <p class="dir">End card. Cut to the Bright Matter orbit mark on deep green (your logo's home color), the planet dot settling into orbit. Build this one in your editor with the transparent logo PNG rather than generating it.</p>
+    <div class="block"><div class="block-label vo">VO</div>
+      <div class="prompt vo-line">"Bright Matter. Break free of the agency. Take your marketing in-house."</div></div>
+    <div class="overlay-note"><b>Text overlay:</b> the orbit logo, then "brightmatter.studio" and "Plan my transition". Sound: the heist track resolves on one warm note.</div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="kicker">For the recording booth</p>
+  <h2>The full VO read</h2>
+  <p class="lede" style="font-size:15.5px">About 105 words. Read it dry and unhurried, roughly 140 words per minute, and let the pauses do the acting. The only line delivered with any warmth is the scene 7 offer.</p>
+  <div class="vo-full">
+    <p><span class="beat">SC 01 · cool, matter-of-fact</span><br>This is a marketing agency. Somewhere in this building is everything they know about my customers. I'm here to take it back.</p>
+    <p><span class="beat">SC 02 · dry</span><br>That's my dashboard. I've paid for it monthly for three years. I've seen it twice.</p>
+    <p><span class="beat">SC 03 · drier</span><br>They're presenting my brand pyramid. I never asked for a pyramid.</p>
+    <p><span class="beat">SC 04 · picking up pace</span><br>My data. My ad accounts. My customer list. Funny how "proprietary" always means mine, but they keep it.</p>
+    <p><span class="beat">SC 05 · flat. do not smile.</span><br>I'm taking this too.</p>
+    <p><span class="beat">SC 06 · the turn, conspiratorial</span><br>Here's what they don't want you to know. AI can now run most of what they charge six figures a year to babysit.</p>
+    <p><span class="beat">SC 07 · warm, sincere, slower</span><br>You know your business better than any agency ever will. I build the automated systems: content, reporting, follow-up. Your team runs them. Your data stays yours.</p>
+    <p><span class="beat">SC 08 · the button</span><br>Bright Matter. Break free of the agency. Take your marketing in-house.</p>
+  </div>
+</section>
+
+<section class="section">
+  <p class="kicker">Spare parts</p>
+  <h2>Alternate gags and hooks</h2>
+  <ul class="alts">
+    <li><b>Cold-open variant for the 30s cut:</b> start ON the fridge stare with "I'm taking this too," THEN cut to the doors. Scroll-stopping in the first second, and the confusion resolves at the title card.</li>
+    <li><b>The vinyl wall:</b> she peels the giant DISRUPT vinyl lettering off the wall one letter at a time and keeps only the D. VO: "I'll leave them the rest."</li>
+    <li><b>The ping-pong table:</b> she takes one paddle mid-rally and keeps walking. The other player just holds their serve forever.</li>
+    <li><b>The invoice:</b> she picks up a framed invoice from reception labeled RETAINER, turns it face-down gently, pats it twice like a casket.</li>
+    <li><b>The plant:</b> "The ficus was billed as a creative expense. The ficus comes with me."</li>
+  </ul>
+</section>
+
+<section class="section">
+  <p class="kicker">The teaser</p>
+  <h2>The 15-second cut</h2>
+  <p class="lede" style="font-size:15.5px">No new generation needed. Re-edit four clips you already have, in this order. The fridge opens cold so the first second stops the scroll, and the confusion resolves at the card.</p>
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">TEASER</span><h3>Edit order</h3><span class="dur">15s total</span></div>
+    <ul class="alts">
+      <li><b>0:00 to 0:03 · SC 05, the fridge.</b> Open on the dead stare, mid-heist, zero context. VO: "I'm taking this too."</li>
+      <li><b>0:03 to 0:06 · SC 02, the yank.</b> Cut on the cable pull, screen dies. VO: "They held my data hostage for three years."</li>
+      <li><b>0:06 to 0:11 · SC 04, the vault.</b> Slow-motion cable coil and box pickup, red lights blinking. VO: "So I took it back. And AI runs it for a fraction of the retainer."</li>
+      <li><b>0:11 to 0:15 · SC 08, the card.</b> Orbit logo settles. VO: "Bright Matter. Take your marketing in-house."</li>
+    </ul>
+    <div class="overlay-note"><b>Teaser VO, full read (about 32 words):</b> "I'm taking this too. They held my data hostage for three years. So I took it back. And AI runs it for a fraction of the retainer. Bright Matter. Take your marketing in-house."</div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="kicker">Ship it</p>
+  <h2>Caption copy</h2>
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">REELS / TIKTOK</span><h3>Short and cheeky</h3></div>
+    <div class="block"><div class="block-label vo">Caption</div>
+      <div class="prompt" data-copy>POV: you finally ask your agency for your own data.
+
+Your dashboard. Your ad accounts. Your customer list. Greg's lunch was collateral.
+
+We build in-house marketing systems that AI runs and your team owns. No retainer required to keep the lights on.
+
+#inhousemarketing #smallbusinessmarketing #aimarketing #marketingagency #databack<button class="copy">COPY</button></div></div>
+  </div>
+  <div class="scene">
+    <div class="scene-head"><span class="scene-num">LINKEDIN</span><h3>The business case, still smiling</h3></div>
+    <div class="block"><div class="block-label vo">Caption</div>
+      <div class="prompt" data-copy>We made a short film about a heist. The twist: everything she steals already belonged to her.
+
+The dashboard she pays for monthly and has seen twice. The ad accounts registered under the agency's name. The customer list marked "proprietary."
+
+If any of that sounds familiar, the serious version: AI now runs most of what agencies charge six figures a year to babysit. You know your business. We build the automated systems. Your team runs them, and your data stays in your name.
+
+Greg, we're sorry about the lunch.<button class="copy">COPY</button></div></div>
+    <div class="overlay-note"><b>YouTube Shorts title options:</b> "She stole her own data back" · "The marketing agency heist" · "I'm taking this too".</div>
+  </div>
+</section>
+
+<footer>
+  Built for Higgsfield: generate each start frame with your reference photo, then animate with the motion prompt, 9:16, 5 to 8 seconds per clip. Keep the character token identical in every prompt. Dub the VO read over the assembled cut and let the fridge take the beat drop.
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var text = btn.parentElement.childNodes[0].textContent.trim();
+    function done(){ btn.textContent = 'COPIED'; setTimeout(function(){ btn.textContent = 'COPY'; }, 1400); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(btn.parentElement);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try{ document.execCommand('copy'); done(); }catch(e){}
+      s.removeAllRanges();
+    }
+  });
+});
+</script>
