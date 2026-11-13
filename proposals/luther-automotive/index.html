@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Luther Automotive · Organic Social Proposal · Bright Matter</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --cream:#FAE3B1; --cream-lt:#FCEECB; --olive:#998731; --sky:#5FA8C2;
+    --orange:#CF5527; --wine:#7D2027; --brown:#673C34; --gold:#C9A24B;
+    --ink:#7D2027; --ink-soft:#673C34; --line:rgba(103,60,52,.22);
+    --radius:16px;
+    --shadow:0 2px 4px rgba(103,60,52,.08), 0 16px 36px -18px rgba(103,60,52,.35);
+    --disp:'Bricolage Grotesque','Archivo',Arial,sans-serif;
+    --body:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --serif:'Fraunces',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--ink-soft);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:88px 0;border-top:1px solid var(--line)}
+  h1,h2,h3{font-family:var(--disp);color:var(--ink);letter-spacing:-.03em;line-height:1.05;margin:0}
+  h1{font-size:clamp(40px,6.4vw,76px);font-weight:800}
+  h2{font-size:clamp(30px,4.2vw,48px);font-weight:800;max-width:20ch}
+  h3{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+  h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--orange);letter-spacing:-.01em}
+  p{margin:0 0 16px}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 20px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--orange);flex:none}
+  .lede{font-size:20px;max-width:60ch}
+  .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15.5px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;font-family:var(--body);transition:transform .15s ease, background .15s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(250,227,177,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:.04em;font-size:15px;color:var(--ink);text-decoration:none}
+  .orbit{width:28px;height:28px}
+  .nav-links{display:flex;gap:22px;align-items:center;font-size:14.5px;font-weight:500}
+  .nav-links a{text-decoration:none;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--orange)}
+  .nav-links a.btn{padding:8px 16px;color:var(--ink);font-size:14px}
+  .menu-btn{display:none;background:none;border:1.5px solid var(--ink);border-radius:999px;padding:7px 14px;font:600 14px var(--body);color:var(--ink);cursor:pointer}
+
+  /* hero */
+  .hero{border-top:0;padding:96px 0 0;position:relative;overflow:hidden}
+  .hero-dots{position:absolute;right:-40px;top:40px;width:380px;opacity:.9;pointer-events:none}
+  .hero .wrap{position:relative}
+  .hero h1{max-width:15ch;margin-bottom:28px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 64px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--wine);color:var(--cream);border-radius:var(--radius) var(--radius) 0 0}
+  .stat{padding:28px 32px;border-right:1px solid rgba(250,227,177,.2)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-family:var(--disp);font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--cream)}
+  .stat span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+
+  /* layout pieces */
+  .two{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;margin-top:40px;align-items:start}
+  .box{background:var(--cream-lt);border:1.5px solid var(--ink);border-radius:var(--radius);padding:28px}
+  .box h3{margin-bottom:14px}
+  .box ul,.plain-list{margin:0;padding:0;list-style:none}
+  .box li{padding:9px 0 9px 22px;position:relative;border-top:1px solid var(--line)}
+  .box li:first-child{border-top:0}
+  .box li::before{content:"";position:absolute;left:0;top:18px;width:9px;height:9px;border-radius:50%;background:var(--orange)}
+  .note{font-size:14.5px;border-left:3px solid var(--sky);padding:4px 0 4px 14px;margin:20px 0 0;color:var(--ink-soft)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:48px}
+  .card{background:var(--cream-lt);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .card h3{margin-bottom:8px}
+  .card p{margin:0;font-size:15.5px}
+  .card:nth-child(3n+1){border-top:5px solid var(--orange)}
+  .card:nth-child(3n+2){border-top:5px solid var(--olive)}
+  .card:nth-child(3n){border-top:5px solid var(--sky)}
+
+  /* tabs */
+  .tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:40px 0 0}
+  .tab{text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:var(--radius);padding:18px 22px;cursor:pointer;font-family:var(--body);color:var(--ink-soft)}
+  .tab small{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .tab b{font-family:var(--disp);font-size:20px;color:var(--ink);letter-spacing:-.02em}
+  .tab[aria-selected="true"]{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+  .tab[aria-selected="true"] b{color:var(--cream)}
+  .panel{display:none;margin-top:24px}
+  .panel.on{display:block}
+  .step{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+  .step .when{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding-top:5px}
+  .step h3{margin-bottom:6px}
+  .step p{margin:0}
+
+  /* mock dashboard */
+  .mock{margin-top:40px;border:1.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;background:var(--cream-lt);box-shadow:var(--shadow)}
+  .mock-bar{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--brown);color:var(--cream);font-family:var(--mono);font-size:12px}
+  .mock-bar i{width:10px;height:10px;border-radius:50%;background:var(--cream);opacity:.5;display:inline-block}
+  .mock-bar span{margin-left:10px}
+  .mock-body{padding:20px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .chip{font-size:12.5px;padding:4px 12px;border-radius:999px;border:1px solid var(--line)}
+  .chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .tile{border:1px solid var(--line);border-radius:12px;padding:14px}
+  .tile small{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:10px}
+  .skel{height:14px;border-radius:7px;background:var(--line)}
+  .skel.big{height:26px;width:60%}
+  .rows{margin-top:16px;display:grid;gap:10px}
+  .row{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center;font-size:13px}
+  .mock-cap{padding:10px 20px;border-top:1px solid var(--line);font-size:13px;font-style:italic}
+
+  /* tables */
+  .tbl-wrap{overflow-x:auto;margin-top:28px}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:560px}
+  th{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:left;color:var(--ink);padding:10px 14px;border-bottom:1.5px solid var(--ink)}
+  td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num{font-family:var(--disp);font-weight:700;color:var(--ink);white-space:nowrap}
+  .gate{background:var(--wine);color:var(--cream);border-radius:12px;padding:16px 20px;margin:18px 0}
+  .gate small{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;display:block;opacity:.8;margin-bottom:4px}
+  .phase{background:var(--cream-lt);border-radius:var(--radius);padding:32px;margin-top:28px;box-shadow:var(--shadow)}
+  .phase .when{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+  .phase h3{font-size:28px;margin-bottom:12px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .dl{margin:0;padding-left:20px}
+  .dl li{margin-bottom:7px}
+  .dl-h{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 10px}
+
+  /* estimator */
+  .est{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;background:var(--cream-lt);border:1.5px solid var(--ink);border-radius:var(--radius);padding:32px}
+  .seg{display:grid;gap:10px}
+  .seg button{text-align:left;border:1.5px solid var(--line);background:transparent;border-radius:12px;padding:14px 16px;cursor:pointer;font-family:var(--body);color:var(--ink-soft);font-size:15px}
+  .seg button b{display:block;color:var(--ink);font-family:var(--disp);font-size:18px}
+  .seg button[aria-pressed="true"]{border-color:var(--orange);background:#fff5dc;box-shadow:inset 0 0 0 1px var(--orange)}
+  .stepper{display:flex;align-items:center;gap:14px;margin-top:10px}
+  .stepper button{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;font-size:20px;color:var(--ink);cursor:pointer}
+  .stepper output{font-family:var(--disp);font-size:28px;font-weight:800;color:var(--ink);min-width:2ch;text-align:center}
+  .sum{display:grid;gap:14px;align-content:start}
+  .sum div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:10px}
+  .sum .total{border-bottom:0;align-items:baseline}
+  .sum .total b{font-family:var(--disp);font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+  .label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 6px}
+  .small{font-size:14.5px;margin-top:28px;padding-left:20px}
+  .small li{margin-bottom:6px}
+
+  /* close */
+  .close{background:var(--brown);color:var(--cream);border-top:0}
+  .close h2,.close .eyebrow{color:var(--cream)}
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+  .contrast > div{border:1px solid rgba(250,227,177,.3);border-radius:var(--radius);padding:26px}
+  .contrast h3{color:var(--cream);margin-bottom:12px}
+  .contrast ul{margin:0;padding-left:20px}
+  .contrast li{margin-bottom:8px}
+  .statement{font-family:var(--disp);font-weight:800;font-size:clamp(28px,4vw,46px);letter-spacing:-.03em;line-height:1.1;margin:56px 0 28px;color:var(--cream)}
+  .statement em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold)}
+  .close .btn{border-color:var(--cream);color:var(--cream)}
+  .close .btn.primary{border-color:var(--orange);color:#fff}
+  footer{background:var(--brown);color:var(--cream);border-top:1px solid rgba(250,227,177,.25);padding:28px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  footer .logo{color:var(--cream);font-size:13px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.btn{transition:none}}
+
+  @media (max-width:860px){
+    section{padding:64px 0}
+    .wrap{padding:0 16px}
+    .two,.cols,.est,.contrast{grid-template-columns:1fr;gap:28px}
+    .stats{grid-template-columns:1fr}
+    .stat{border-right:0;border-bottom:1px solid rgba(250,227,177,.2)}
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .step{grid-template-columns:1fr;gap:6px}
+    .hero-dots{width:220px;opacity:.35}
+    .menu-btn{display:block}
+    .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:18px 16px;border-bottom:1px solid var(--line)}
+    .nav-links.open{display:flex}
+    .est,.phase{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><svg class="orbit" viewBox="0 0 100 100" aria-hidden="true"><circle cx="48" cy="54" r="40" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="84 16" transform="rotate(-20 48 54)"/><circle cx="78" cy="20" r="13.5" fill="#C9A24B"/></svg>BRIGHT MATTER</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#why">Why now</a>
+      <a href="#doing">The work</a>
+      <a href="#scope">Scope</a>
+      <a href="#phases">Phases</a>
+      <a href="#success">Success</a>
+      <a href="#investment">Investment</a>
+      <a class="btn" href="executive-summary/">Executive summary</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <svg class="hero-dots" viewBox="0 0 380 380" aria-hidden="true">
+    <circle cx="90" cy="70" r="34" fill="#CF5527"/><circle cx="230" cy="40" r="16" fill="#998731"/>
+    <circle cx="310" cy="130" r="46" fill="#5FA8C2"/><circle cx="150" cy="200" r="12" fill="#7D2027"/>
+    <circle cx="260" cy="260" r="28" fill="#998731"/><circle cx="80" cy="310" r="18" fill="#5FA8C2"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">An invitation to Luther Automotive's marketing team</p>
+    <h1>One social standard for 50+ rooftops, run by <em>your</em> people.</h1>
+    <p class="lede">A six-month fractional engagement for organic social: a fixed-fee strategy sprint first, then a senior lead working beside your marketing center.</p>
+    <p class="lede">It is built from an audit of your own pages and the goals your leadership names. Nothing in it comes from a dealer-group template.</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="executive-summary/">Read the executive summary</a>
+      <a class="btn" href="#doing">See the work</a>
+      <a class="btn" href="#investment">See the investment</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>50+</b><span>Rooftops the standard is built for</span></div>
+      <div class="stat"><b>1</b><span>Channel: organic social</span></div>
+      <div class="stat"><b>6 mo</b><span>Sprint, then rollout</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <p class="eyebrow">Why this, why now</p>
+    <h2>Fifty-plus stores are posting. We expect to find <em>no</em> shared standard.</h2>
+    <div class="two">
+      <div class="reveal">
+        <p>You already have what most dealer groups lack. Luther has been family owned since 1952, carries 27 brands, and runs its own marketing center. The people, the stories and the production talent are already in the building.</p>
+        <p>The gap we expect to find is the system around them. When each store decides alone what to post, how often, and what counts as on brand, quality depends on who happens to hold the login that month. Risk does too: a payment or lease offer a store posts is still an advertisement, and the disclosure rules apply to it.</p>
+        <p>So the scope is deliberately narrow. Organic social only, and an audit of your group pages plus a sample of 8 to 10 stores chosen across brands, markets and store sizes. A sample shows the patterns in weeks. Auditing every rooftop would take months and tell us the same thing.</p>
+        <p>From there, one written standard goes to every store through your own team.</p>
+        <p class="note">This is our read from the outside and it is a hypothesis. The first job of the sprint is to test it against your pages and your people, and to say so plainly if it is wrong.</p>
+      </div>
+      <div class="box reveal">
+        <h3>What you get out of it</h3>
+        <ul>
+          <li>One written organic social strategy for the group</li>
+          <li>A governance playbook: who posts, who approves, what never goes up</li>
+          <li>Content pillars sized for different kinds of store</li>
+          <li>A KPI framework your own leadership sets</li>
+          <li>A marketing team trained to run all of it</li>
+          <li>A monthly leadership briefing on what is working and why</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><h3>Your team runs it</h3><p>We direct and train. Your marketing center executes. When the contract ends, the system stays with you.</p></div>
+      <div class="card reveal"><h3>Governance is the product</h3><p>At 50+ stores, post ideas are the easy part. Deciding who posts what, and who checks it, is the work that holds.</p></div>
+      <div class="card reveal"><h3>A sample beats a census</h3><p>Eight to ten stores, chosen well, expose the patterns across the group. You get answers in weeks and pay for less audit.</p></div>
+      <div class="card reveal"><h3>Fixed fee before any retainer</h3><p>You see the strategy and sit through the readout before you choose how much of us you want. The sprint stands on its own.</p></div>
+      <div class="card reveal"><h3>You set the scoreboard</h3><p>Your leadership names the numbers that matter before rollout starts. We are measured against those, in your reporting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="doing">
+  <div class="wrap">
+    <p class="eyebrow">What we're actually doing</p>
+    <h2>In plain terms, <em>no</em> jargon.</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-panel="p1"><small>Phase 1 · Weeks 1 to 8</small><b>Strategy sprint</b></button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p2"><small>Phase 2 · Month 3 onward</small><b>Rollout with your team</b></button>
+    </div>
+    <div class="panel on" id="p1">
+      <div class="step"><div class="when">Weeks 1 to 3</div><div><h3>We look</h3><p>We read your group pages and a sample of 8 to 10 store pages, post by post. We talk to the people who run them and to a few general managers. We write down what is working, what is missing, and where stores contradict each other.</p></div></div>
+      <div class="step"><div class="when">Weeks 4 to 6</div><div><h3>We decide and build</h3><p>We write the strategy, the governance playbook and the content pillars. We draft the KPI framework with your leadership, using the numbers they already care about.</p></div></div>
+      <div class="step"><div class="when">Weeks 7 to 8</div><div><h3>We present it</h3><p>We walk your leadership through all of it in one readout. You leave with the documents, a 12-month roadmap, and a clear choice about Phase 2.</p></div></div>
+    </div>
+    <div class="panel" id="p2">
+      <div class="step"><div class="when">Month 3 onward</div><div><h3>We run it with your people</h3><p>We take the standard to the stores through your marketing center. We train the people who post, review what goes out, and report to leadership every month. How much of this we carry depends on the tier you choose.</p></div></div>
+      <div class="box" style="margin-top:8px">
+        <h3>What it looks like <span style="font:500 13px var(--mono);letter-spacing:.06em;text-transform:uppercase">· illustrative examples</span></h3>
+        <ul>
+          <li>A one-page posting standard for each kind of store</li>
+          <li>An approval path for any post that names a price, payment or offer</li>
+          <li>A monthly briefing naming the top posts across the group and why they worked</li>
+          <li>A store scorecard your general managers can read in a minute</li>
+          <li>An onboarding session for anyone new who takes over a store's pages</li>
+          <li>A shared library of post formats already proven at other Luther stores</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mock reveal" aria-label="Illustrative reporting layout">
+      <div class="mock-bar"><i></i><i></i><i></i><span>Luther organic social · monthly briefing</span></div>
+      <div class="mock-body">
+        <div class="chips"><span class="chip on">All stores</span><span class="chip">By brand</span><span class="chip">By market</span><span class="chip">Last 30 days</span></div>
+        <div class="tiles">
+          <div class="tile"><small>KPI one</small><div class="skel big"></div></div>
+          <div class="tile"><small>KPI two</small><div class="skel big"></div></div>
+          <div class="tile"><small>KPI three</small><div class="skel big"></div></div>
+          <div class="tile"><small>Stores on standard</small><div class="skel big"></div></div>
+        </div>
+        <div class="rows">
+          <div class="row"><span>Top store posts</span><div class="skel" style="width:82%"></div></div>
+          <div class="row"><span>Stores to coach</span><div class="skel" style="width:46%"></div></div>
+          <div class="row"><span>Offer posts reviewed</span><div class="skel" style="width:64%"></div></div>
+        </div>
+      </div>
+      <div class="mock-cap">Illustrative layout only. It holds no Luther data, and the KPIs are left blank because your leadership names them.</div>
+    </div>
+
+    <div class="cards">
+      <div class="card reveal"><h3>One named owner</h3><p>Shannon McNeil leads the work and is the person in the room. You are never handed to a junior team.</p></div>
+      <div class="card reveal"><h3>Documented as we go</h3><p>Every decision lands in the playbook the week it is made. Your team can run the system from the documents alone.</p></div>
+      <div class="card reveal"><h3>Measured against your numbers</h3><p>Reporting uses the KPIs your leadership set in the sprint. If those change, the reporting changes with them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="wrap">
+    <p class="eyebrow">Scope</p>
+    <h2>What we look at, and what we <em>leave</em> alone.</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>In scope</th><th>What we evaluate</th></tr></thead>
+        <tbody>
+          <tr><td><b>Group pages</b></td><td>Voice, consistency, what the group says that no single store can.</td></tr>
+          <tr><td><b>Store pages, sample of 8 to 10</b></td><td>Posting rhythm, content mix, quality, and how far each store drifts from the others.</td></tr>
+          <tr><td><b>Platforms</b></td><td>Where each store is active and where it should be. The list is confirmed with you at kickoff.</td></tr>
+          <tr><td><b>Roles and access</b></td><td>Who holds the logins, who approves posts, and what happens when someone leaves.</td></tr>
+          <tr><td><b>Price and offer posts</b></td><td>Whether stores handle payments, leases and offers the same way, with the same disclosures.</td></tr>
+          <tr><td><b>Reporting</b></td><td>What is measured today, who sees it, and whether it changes any decisions.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><b>Not in this proposal:</b> paid social, content production, community management, and store-by-store content calendars. Each can be quoted as a separate line if you want it.</p>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="wrap">
+    <p class="eyebrow">Phases in detail</p>
+    <h2>Two phases, with a <em>gate</em> between them.</h2>
+
+    <div class="phase reveal">
+      <div class="when">Phase 1 · Weeks 1 to 8 · fixed fee</div>
+      <h3>Strategy sprint</h3>
+      <p>We audit, decide and document. The sprint ends with a readout to your leadership and a complete set of working documents that are yours whether or not Phase 2 goes ahead.</p>
+      <div class="gate"><small>Gate to Phase 2</small>Luther leadership signs off on the strategy and the KPIs, names one owner on your side, and chooses a Phase 2 tier.</div>
+      <p class="dl-h">Deliverables</p>
+      <ul class="dl">
+        <li>Audit of the group pages and a sample of 8 to 10 store pages</li>
+        <li>Organic social strategy for the group</li>
+        <li>Governance playbook for 50+ rooftops</li>
+        <li>Content pillars by store type</li>
+        <li>KPI framework, set with your leadership</li>
+        <li>12-month roadmap</li>
+        <li>Leadership readout</li>
+      </ul>
+    </div>
+
+    <div class="phase reveal">
+      <div class="when">Phase 2 · Month 3 onward · 3-month minimum</div>
+      <h3>Rollout with your team</h3>
+      <p>The standard moves from paper to the stores. You choose how much of the rollout we carry. Both tiers have hours capped in writing.</p>
+      <div class="gate"><small>Gate to renewal</small>At the end of month 6 we review results against your KPIs together. You continue, change tier, or stop.</div>
+      <div class="cols">
+        <div>
+          <p class="dl-h">Tier A · Embedded social lead · up to 20 hours a week</p>
+          <ul class="dl">
+            <li>Roll the strategy out across the stores</li>
+            <li>Train store and marketing center staff</li>
+            <li>Review content before and after it posts</li>
+            <li>Run the reporting</li>
+            <li>Monthly leadership briefing</li>
+          </ul>
+        </div>
+        <div>
+          <p class="dl-h">Tier B · Advisory retainer · 5 to 7 hours a week</p>
+          <ul class="dl">
+            <li>Monthly leadership session</li>
+            <li>Review of your team's content and reporting</li>
+            <li>Quarterly strategy refresh</li>
+            <li>On-call access between sessions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="success">
+  <div class="wrap">
+    <p class="eyebrow">Measuring success</p>
+    <h2>Your leadership sets the scoreboard <em>before</em> rollout starts.</h2>
+    <div class="two">
+      <div class="reveal">
+        <p>We do not arrive with a list of KPIs. During the sprint we ask your marketing leadership and a sample of general managers what organic social should do for a Luther store, in their words.</p>
+        <p>Those answers become the KPI framework. It is signed off at the gate, before any Phase 2 fee is paid, and it is the only scoreboard the monthly briefing reports against.</p>
+        <p>If a number cannot be measured from data you own, it does not go on the scoreboard.</p>
+      </div>
+      <div class="box reveal">
+        <h3>How the scoreboard gets built</h3>
+        <ul>
+          <li>Interviews with marketing leadership and sample store GMs</li>
+          <li>A short list of KPIs, each tied to a data source you control</li>
+          <li>A baseline taken from the audit</li>
+          <li>Sign-off at the Phase 1 gate</li>
+          <li>Review against the baseline at month 6</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="investment">
+  <div class="wrap">
+    <p class="eyebrow">Investment</p>
+    <h2>One fixed fee for the sprint, then one flat <em>monthly</em> rate.</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Phase</th><th>When</th><th>Fee</th><th>Terms</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. Strategy sprint</b></td><td>Weeks 1 to 8</td><td class="num" data-fee="sprint"></td><td>Fixed. 50% at signing, 50% at the readout.</td></tr>
+          <tr><td><b>2A. Embedded social lead</b></td><td>Month 3 onward</td><td class="num" data-fee="embedded" data-suffix=" / month"></td><td>Up to 20 hours a week. 3-month minimum, then 60 days' notice.</td></tr>
+          <tr><td><b>2B. Advisory retainer</b></td><td>Month 3 onward</td><td class="num" data-fee="advisory" data-suffix=" / month"></td><td>5 to 7 hours a week. 3-month minimum, then 30 days' notice.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="est reveal">
+      <div>
+        <p class="label">Phase 2 tier</p>
+        <div class="seg" id="tierSeg">
+          <button type="button" data-tier="embedded" aria-pressed="true"><b>Embedded social lead</b>Up to 20 hours a week. We carry the rollout with your team.</button>
+          <button type="button" data-tier="advisory" aria-pressed="false"><b>Advisory retainer</b>5 to 7 hours a week. Your team carries it, we steer.</button>
+        </div>
+        <p class="label" style="margin-top:24px">Months of Phase 2</p>
+        <div class="stepper">
+          <button type="button" id="less" aria-label="Fewer months">−</button>
+          <output id="months">3</output>
+          <button type="button" id="more" aria-label="More months">+</button>
+        </div>
+      </div>
+      <div class="sum">
+        <div><span>Strategy sprint</span><b id="sSprint"></b></div>
+        <div><span id="sTierLabel"></span><b id="sTier"></b></div>
+        <div><span>Contract length</span><b id="sLen"></b></div>
+        <div class="total"><span>Total</span><b id="sTotal"></b></div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Billed separately</th><th>How</th></tr></thead>
+        <tbody>
+          <tr><td><b>Software</b></td><td>None is required. If we recommend a tool, Luther buys and owns the account.</td></tr>
+          <tr><td><b>Travel</b></td><td>At cost, approved by you before it is booked.</td></tr>
+          <tr><td><b>Out-of-scope work</b></td><td>Paid social, content production, community management and store calendars are quoted before any work starts.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="small">
+      <li>Hours in Phase 2 are capped in writing. Work beyond the cap is quoted before it starts.</li>
+      <li>The start date is to be confirmed. This proposal assumes a start in December 2026 or early January 2027, with the readout by late February.</li>
+      <li>Everything produced in the sprint belongs to Luther on final payment.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="close" id="close">
+  <div class="wrap">
+    <p class="eyebrow">The close</p>
+    <h2>Prove it on a sample. Then give it to every store.</h2>
+    <div class="contrast">
+      <div>
+        <h3>Today, as we read it from outside</h3>
+        <ul>
+          <li>Each store decides alone what to post</li>
+          <li>Quality depends on who holds the login</li>
+          <li>Offer posts are handled store by store</li>
+          <li>No single view of what works across the group</li>
+        </ul>
+      </div>
+      <div>
+        <h3>After six months</h3>
+        <ul>
+          <li>One written standard every store can follow</li>
+          <li>A clear owner and approval path at every rooftop</li>
+          <li>One rule for price and offer posts</li>
+          <li>A monthly briefing against KPIs you set</li>
+        </ul>
+      </div>
+    </div>
+    <p class="statement">Start with a sample. Roll out on <em>evidence</em>.</p>
+    <a class="btn primary" href="executive-summary/">Read the executive summary</a>
+    <a class="btn" href="#investment">Back to the investment</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><svg class="orbit" viewBox="0 0 100 100" aria-hidden="true" style="width:22px;height:22px"><circle cx="48" cy="54" r="40" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="84 16" transform="rotate(-20 48 54)"/><circle cx="78" cy="20" r="13.5" fill="#C9A24B"/></svg>BRIGHT MATTER</div>
+    <div>Prepared for Luther Automotive. Confidential.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Commercial terms: edit here, the whole page follows. */
+  var TERMS = {
+    sprint: 22000,
+    embedded: 15000,
+    advisory: 7000,
+    sprintMonths: 3,   /* sprint window counted toward contract length */
+    minMonths: 3,
+    maxMonths: 12
+  };
+  var LABELS = { embedded: 'Embedded social lead', advisory: 'Advisory retainer' };
+  var state = { tier: 'embedded', months: TERMS.minMonths };
+  function usd(n){ return '$' + n.toLocaleString('en-US'); }
+  function $(id){ return document.getElementById(id); }
+
+  document.querySelectorAll('[data-fee]').forEach(function(el){
+    el.textContent = usd(TERMS[el.dataset.fee]) + (el.dataset.suffix || '');
+  });
+
+  function render(){
+    var fee = TERMS[state.tier];
+    $('months').textContent = state.months;
+    $('sSprint').textContent = usd(TERMS.sprint);
+    $('sTierLabel').textContent = LABELS[state.tier] + ', ' + state.months + ' months';
+    $('sTier').textContent = usd(fee * state.months);
+    $('sLen').textContent = (TERMS.sprintMonths + state.months) + ' months';
+    $('sTotal').textContent = usd(TERMS.sprint + fee * state.months);
+    document.querySelectorAll('#tierSeg button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.tier === state.tier));
+    });
+  }
+  document.querySelectorAll('#tierSeg button').forEach(function(b){
+    b.addEventListener('click', function(){ state.tier = b.dataset.tier; render(); });
+  });
+  $('less').addEventListener('click', function(){ state.months = Math.max(TERMS.minMonths, state.months - 1); render(); });
+  $('more').addEventListener('click', function(){ state.months = Math.min(TERMS.maxMonths, state.months + 1); render(); });
+  render();
+
+  /* phase tabs */
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.setAttribute('aria-selected', String(x === t)); });
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.toggle('on', p.id === t.dataset.panel); });
+    });
+  });
+
+  /* mobile menu */
+  var mb = $('menuBtn'), nl = $('navLinks');
+  mb.addEventListener('click', function(){
+    var open = nl.classList.toggle('open');
+    mb.setAttribute('aria-expanded', String(open));
+  });
+  nl.addEventListener('click', function(e){ if (e.target.tagName === 'A') { nl.classList.remove('open'); mb.setAttribute('aria-expanded','false'); } });
+
+  /* reveal */
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach(function(i){ i.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function(i){ io.observe(i); });
+  }
+})();
+</script>
+</body>
+</html>
